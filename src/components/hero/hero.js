@@ -1,19 +1,53 @@
-import './hero.css'
+import styled from 'styled-components'
+
+
+const HeroContainer = styled.section`
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 9vh 0vw 6vh 0vw;
+    line-height: 10vw;
+`
+const RenglonInferior = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+`
+/* ------------------texto----------------------- */
+
+const TextoPequeño = styled.span`
+    font-size: 1.2em;
+    margin-left: 5vw;
+    font-family: ${({theme})=> theme.fuente.Italiana};
+`
+const TextoGrande = styled.span`
+    font-size: 1.94em;
+`
+const TextoGrandeItalica = styled(TextoGrande)`
+    font-family: ${({theme})=> theme.fuente.Italiana};
+`
+
+const TextoGrandeUbuntu= styled.span`
+    font-size: 2em;
+    font-family: ${({theme})=> theme.fuente.Ubuntu};
+`
 
 const Hero = ()=> {
     return (
-        <section className='hero_container'>
-            <div className='renglon_superior'>
-                <span className='fuente_italiana hero_grande'>Barrionuevo Diego,</span>
+        <HeroContainer>
+            <div>
+                <TextoGrandeItalica>Barrionuevo Diego,</TextoGrandeItalica>
             </div>
-            <div className='renglon_medio'>
-                <span className='fuente_ubuntu hero_grande'>Full Stack </span>
+            
+            <div>
+                <TextoGrandeUbuntu>Full Stack </TextoGrandeUbuntu>
             </div>
-            <div className='renglon_inferior'>       
-                <span className='fuente_ubuntu hero_grande'>Developer</span>
-                <span className='fuente_italiana hero_pequeño'>Trainee</span>
-            </div>
-        </section>
+
+            <RenglonInferior>       
+                <TextoGrandeUbuntu>Developer</TextoGrandeUbuntu>
+                <TextoPequeño>Trainee</TextoPequeño>
+            </RenglonInferior>
+        </HeroContainer>
     )
 }
 
