@@ -5,7 +5,7 @@ const HeroContainer = styled.section`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin: 9vh 0vw 6vh 0vw;
+    margin: 15vh 0vw 6vh 0vw;
     line-height: 10vw;
 `
 const RenglonInferior = styled.div`
@@ -40,7 +40,7 @@ const Hero = ()=> {
             </div>
             
             <div>
-                <TextoGrandeUbuntu>Full Stack </TextoGrandeUbuntu>
+                <TextoGrandeUbuntu>Web </TextoGrandeUbuntu>
             </div>
 
             <RenglonInferior>       

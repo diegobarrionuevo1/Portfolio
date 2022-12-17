@@ -1,18 +1,18 @@
 
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import logo from '../assets/logoPortfolioMayusculas.png'
 import Hamburguesa from './hamburguesa'
+import { LinkHover } from '../hovers/hovers'
 
 const NavSolo = styled.nav`
     position: relative;
-    width: 100vw;
+    width: 100%;
 `
 const NavContainer = styled.div`
-    height: 7vh;
+    height: 10vh;
     min-height: 55px;
-    width: 100vw;
-    padding: 8px;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     z-index: 4;
@@ -24,65 +24,86 @@ const NavContainer = styled.div`
     }
     img{
         z-index:5;
-        margin-left: 2vw;
-    }
-    a{
-        color: ${({theme})=> theme.texto};
-        font-family: ${({theme})=> theme.fuente.Ubuntu};
-        text-decoration: none;
-        margin: 1.5rem 0rem ;
-        display: block;
-        @media (min-width: 768px) {
-            font-size: 1.5rem;
-            position: initial;
-            margin: 0px 10px;
-            display: inline;
-        }
+        margin: 10px 0vw 0vw 2vw;
     }
     .links{
         position: absolute;
         top: -700px;
         left: -2000px;
+        right: 0px;
         margin-left: auto;
-        margin-top: auto;
+        margin-right: auto;
         text-align: center;
+        display: block;
+        transition: all .6s ease;
+        a{
+            margin: 3vw;
+        }
         @media (min-width: 768px) {
             position: initial;
-            margin: 0;
+            margin: 0px 3vw;
             display: flex;
             align-items: center;
         }
     }
     .links.active{
-        width: 100vw;
+        width: 100%;
         top: 30vh;
         left: 0;
         right: 0;
-        display: block;
     }
     .burguer_div{
+        margin: 10px 0vw 0vw 2vw;
         @media(min-width: 768px) {
             display: none;
         }
     }
 `
+const BgMenu = styled.div`
+    position: fixed;
+    backdrop-filter:blur(4px);
+    width: 100vw;
+    height: 93vh;
+    top: -700px;
+    left: -2000px;
+    border-radius: 0 0 60% 0;
+    z-index: 3;
+    transition: all .6s ease;
+    &.active{
+        top: 71px; //tengo que hacer que tenga exacto el tamaño del nav para que no haya nada de diferencia
+        left: 0;
+    }
+`
 
 const Nav = () =>{
+
+    const [click, setClick] = useState(false )
+    const hizoClick = () =>{
+        // le cambia el valor al click
+        setClick(!click)
+    }
+
+/*     window.addEventListener("resize",()=>{
+        
+        window.screen.width > 768 && click === true? (setClick(false)) : (setClick(click));
+    }) */
+
     return(
         <NavSolo>
             <NavContainer>
                 <img src={logo} alt = 'logo' id='logo'></img>
-                <div className='links '>
-                    <a href='/'>Inicio</a>
-                    <a href='/'>Tecnologias</a>
-                    <a href='/'>Proyectos</a>
-                    <a href='/'>Sobre mi</a>
-                    <a href='/'>Contacto</a>
+                <div className={`links ${click ? 'active' : ''}`}>
+                    <LinkHover contenido="Inicio" href = "/" ></LinkHover>
+                    <LinkHover contenido="Habilidades" href = "/" ></LinkHover>
+                    <LinkHover contenido="Proyectos" href = "/" ></LinkHover>
+                    <LinkHover contenido="Sobre mi" href = "/" ></LinkHover>
+                    <LinkHover contenido="Contacto" href = "/" ></LinkHover>
                 </div>
                 <div className='burguer_div'>
-                    <Hamburguesa></Hamburguesa>
+                    <Hamburguesa clicked = {click} hizoClick  = {hizoClick}/>
                 </div>
             </NavContainer>
+            <BgMenu className={`initial ${click ? 'active' : ''}`}/> 
         </NavSolo>
     )
 }

@@ -1,5 +1,6 @@
-import { Hero, Nav, Themes } from './components';
+import { Hero, Nav, Pildoras, SobreMi, Themes } from './components';
 import styled, { ThemeProvider } from 'styled-components';
+import { LinkHover } from './components/hovers/hovers';
 
 
 function App() {
@@ -14,18 +15,14 @@ function App() {
   `
 
   return (
-    <div className="App">
       <ThemeProvider theme={Themes["dark"]}>
         <DivContainer>
           <Nav/>
           <Hero/>
-          <Hero/>
-          <Hero/>
-          <Hero/>
-          <Hero/>
+          <Pildoras/>
+          
         </DivContainer>
       </ThemeProvider>
-    </div>
   );
 }
 

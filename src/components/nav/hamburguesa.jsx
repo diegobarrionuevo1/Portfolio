@@ -1,9 +1,11 @@
 import styled from "styled-components"
 
-const Hamburguesa = ()=>{
+const Hamburguesa = ({clicked, hizoClick})=>{
     return(
         <Hambur>
-            <div className="icon nav-icon-5">
+            <div    onClick={hizoClick} 
+                    className= {`icon nav-icon-5 ${clicked ? "open" : ""}`}
+                    >
                 <span></span>
                 <span></span>
                 <span></span>
@@ -45,7 +47,7 @@ const Hambur = styled.div`
     bottom:0px;
     left: 0px;
     }
-    .nav-icon-5:not(.open):hover span:nth-child(1){
+/*     .nav-icon-5:not(.open):hover span:nth-child(1){
     transform: rotate(-3deg) scaleY(1.1);
     }
     .nav-icon-5:not(.open):hover span:nth-child(2){
@@ -53,7 +55,7 @@ const Hambur = styled.div`
     }
     .nav-icon-5:not(.open):hover span:nth-child(3){
     transform: rotate(-4deg) scaleY(1.1);
-    }
+    } */
     .nav-icon-5.open span:nth-child(1){
     transform: rotate(45deg);
     top: 13px;
