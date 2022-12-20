@@ -1,8 +1,5 @@
-import { Hero, Nav, Pildoras, SobreMi, Themes } from './components';
+import { Hero, Nav, Pildoras, Proyectos, SobreMi, TargetasPro, Themes } from './components';
 import styled, { ThemeProvider } from 'styled-components';
-import { LinkHover } from './components/hovers/hovers';
-
-
 function App() {
   const DivContainer = styled.div `
   background-color: ${({theme}) => theme.fondo};
@@ -12,6 +9,7 @@ function App() {
   align-items: center;
   font-size: calc(5px + 5vw);
   color: ${({theme}) => theme.texto} ;
+  overflow: hidden;
   `
 
   return (
@@ -20,7 +18,7 @@ function App() {
           <Nav/>
           <Hero/>
           <Pildoras/>
-          
+          <TargetasPro/>
         </DivContainer>
       </ThemeProvider>
   );

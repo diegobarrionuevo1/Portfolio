@@ -53,7 +53,7 @@ const ContainerPildoras = styled.div`
 `
 const Titulo = styled.div`
     font-family: ${({theme})=> theme.fuente.Italiana};
-    font-size: 1.5em;
+    font-size: 1.9em;
     color: ${({theme})=> (theme.texto)};
     width: auto;
     margin: 4vh 0vw;
