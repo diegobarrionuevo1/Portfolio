@@ -1,5 +1,6 @@
-import { Hero, Nav, Pildoras, Proyectos, SobreMi, TargetasPro, Themes } from './components';
+import { Footer, Hero, Nav, Pildoras, SobreMi, TargetasPro, Themes } from './components';
 import styled, { ThemeProvider } from 'styled-components';
+
 function App() {
   const DivContainer = styled.div `
   background-color: ${({theme}) => theme.fondo};
@@ -19,6 +20,8 @@ function App() {
           <Hero/>
           <Pildoras/>
           <TargetasPro/>
+          <SobreMi/>
+          <Footer/>
         </DivContainer>
       </ThemeProvider>
   );
