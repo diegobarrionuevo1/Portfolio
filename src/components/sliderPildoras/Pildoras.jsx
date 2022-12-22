@@ -1,6 +1,7 @@
 
 import { useState } from "react"
 import styled from "styled-components"
+import { PocasPuntas } from "../assets/Detalles"
 import sliderInfo from "../assets/Sliders/slidersInfo"
 
 
@@ -11,7 +12,14 @@ const Pildoras = () =>{
     return(
         <>
         <Container>
-            <Titulo>Habilidades</Titulo>
+            <ContainerDetalle>
+                <PocasPuntas/>
+            </ContainerDetalle>
+            <TextContainer>
+                <h1>Habilidades</h1>
+                <p>¡Siempre estoy aprendiendo algo nuevo!</p>
+            </TextContainer>
+            <a id='proyectos'></a>
             <ContainerPildoras>
                 
                 <PildoraDiv  image={imagenes.html} onClick={()=> setPildor(0)} className= { (pildor ===0) ? "active" : ""}>
@@ -37,9 +45,17 @@ const Pildoras = () =>{
 
 export default Pildoras
 
+const ContainerDetalle = styled.div`
+    position: relative;
+    div{
+        top: -15vh;
+        right: 20vw;
+        z-index: 0;
+    }
+`
 
 const Container = styled.section`
-    background-color: ${({theme})=> theme.fondo};
+    background-color: ${({theme})=> theme.noFondo};
     width: 100%;
     padding: 4vh 0;
     display: flex;
@@ -50,18 +66,37 @@ const Container = styled.section`
 const ContainerPildoras = styled.div`
     width: 100%;
     display: flex;
+    z-index: 1;
 `
-const Titulo = styled.div`
-    font-family: ${({theme})=> theme.fuente.Italiana};
-    font-size: 1.9em;
-    color: ${({theme})=> (theme.texto)};
-    width: auto;
-    margin: 4vh 0vw;
+const TextContainer = styled.div`
     display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin: 0;
+    h1{
+        width: 100%;
+        font-family: ${({theme})=> theme.fuente.Italiana};
+        font-size: 1.9em;
+        font-weight: 700;
+        color: ${({theme})=> (theme.noTexto)};
+        margin: 0;
+        z-index: 1;
+    }
+    p{
+        width: 50%;
+        text-align: right;
+        font-family: ${({theme})=> theme.fuente.Italiana};
+        font-size: .8em;
+        font-weight: 700;
+        color: ${({theme})=> (theme.noTexto)};
+        margin: 0;
+        margin-top: -10px;
+        z-index: 1;
+    }
 `
 
 const PildoraDiv = styled.div`
-    height: 20vh;
+    height: 15vh;
     border-radius: 20px;
     margin: 3px;
     cursor: pointer;
@@ -72,7 +107,7 @@ const PildoraDiv = styled.div`
     position: relative;
     transition: all 500ms ease-in-out;
     background-image: url('${(props)=>props.image}');
-    filter: brightness(79%);
+    filter: brightness(59%);
     overflow: hidden;
 
     h1{

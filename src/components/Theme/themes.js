@@ -19,7 +19,7 @@ const LightTheme = {
 }
 const DarkTheme = {
     texto: "white",
-    noTexto: "black",
+    noTexto: "#1f1e1d",
     fondo: "#1f1e1d;",
     noFondo: "#e4e4e4",
     fuente: Fuentes

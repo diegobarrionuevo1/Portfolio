@@ -53,7 +53,7 @@ const Sobre = styled.section`
         width: 100%;
         text-align: center;
         font-family: ${({theme})=> theme.fuente.Ubuntu};
-        font-size: 1em;
+        font-size: .9em;
         color: ${({theme})=> theme.noTexto};
         background-color: ${({theme})=> theme.noFondo};
         border-bottom: solid 1px;

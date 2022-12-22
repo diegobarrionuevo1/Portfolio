@@ -5,8 +5,11 @@ const HeroContainer = styled.section`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin: 15vh 0vw 6vh 0vw;
+    margin: 15vh 0vw 12vh 0vw;
     line-height: 10vw;
+    div{
+        z-index: 1;
+    }
 `
 const RenglonInferior = styled.div`
     display: flex;
@@ -33,8 +36,10 @@ const TextoGrandeUbuntu= styled.span`
 `
 
 const Hero = ()=> {
-    return (
-        <HeroContainer>
+    return (<>
+        <a id='inicio'></a>
+        <HeroContainer >
+            <a id='habilidades'></a>
             <div>
                 <TextoGrandeItalica>Barrionuevo Diego,</TextoGrandeItalica>
             </div>
@@ -48,7 +53,7 @@ const Hero = ()=> {
                 <TextoPequeño>Trainee</TextoPequeño>
             </RenglonInferior>
         </HeroContainer>
-    )
+    </>)
 }
 
 export default Hero

@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import MuchasPuntas from "../assets/Detalles";
+import { MuchasPuntas } from "../assets/Detalles";
+
 import info from "../assets/Sliders/slidersInfo"
 
 const TarjetaProyecto = (props) =>{
@@ -10,11 +11,11 @@ const TarjetaProyecto = (props) =>{
             <Container>
                 <Fondo></Fondo>
                 <SegundoDiv derecha = {props.derecha}>
-                    <h1 derecha = {props.derecha}>{props.titulo}</h1>
+                    <h1 derecha = {props.derecha}>  {props.titulo}  </h1>
                     <p>{props.contenido}</p>
                 </SegundoDiv>
                 <img src={props.imagen} alt="" />
-                <Numero derecha = {props.derecha}>{props.numero}</Numero>
+                <Numero derecha = {props.derecha}>  {props.numero}  </Numero>
             </Container>
         </>
     )
@@ -42,6 +43,8 @@ const TarjetasPro = () =>{
             numero : "02"
             }
         )}
+        <a id='sobreMi'></a>
+        <a id='contacto'></a>
         </>
         
 
@@ -52,10 +55,10 @@ export default TarjetasPro;
 
 const Titulo = styled.div`
     font-family: ${({theme})=> theme.fuente.Italiana};
-    font-size: 1.9em;
+    font-size: 2.2em;
     color: ${({theme})=> (theme.texto)};
-    width: auto;
-    margin: 4vh 0vw;
+    width: 90%;
+    margin: 5vh 0vh -5vh 0vh;
     display: flex;
 `
 
@@ -63,7 +66,7 @@ const SvgContainer = styled.section`
     position: relative;
     div{
         top: 8vh;
-        right: ${(props) => (props.children.props.derecha ? "15vw" : "-55vw")};
+        right: ${(props) => (props.children.props.derecha ? "15vw" : "-65vw")};
     }
 `
 const Fondo = styled.div`
@@ -97,7 +100,7 @@ const SegundoDiv= styled.div`
         h1{
             position: absolute;
             font-family: ${({theme})=> theme.fuente.Italiana};
-            font-size: 1.9em;
+            font-size: 1.7em;
             font-weight: 500;
             top: -34vw;
             left:  ${(props) => (props.derecha ? "-9vw" : "20vw")};
