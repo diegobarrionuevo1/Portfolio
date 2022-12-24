@@ -43,7 +43,7 @@ const Hero = ()=> {
             <div>
                 <TextoGrandeItalica>Barrionuevo Diego,</TextoGrandeItalica>
             </div>
-            
+            {console.log(window.scrollY)}
             <div>
                 <TextoGrandeUbuntu>Web </TextoGrandeUbuntu>
             </div>

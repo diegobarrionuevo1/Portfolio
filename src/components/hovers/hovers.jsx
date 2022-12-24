@@ -3,7 +3,7 @@ import styled from "styled-components"
 export const LinkHover = (props) =>{
     return(
         <DivCheto>
-            <Link  href={props.href || ""}> {props.contenido} </Link>
+            <Link onClick={props.hizoClick}  href={props.href || ""}> {props.contenido} </Link>
         </DivCheto>
     )
 }

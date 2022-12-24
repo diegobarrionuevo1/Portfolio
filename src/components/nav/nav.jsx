@@ -73,6 +73,9 @@ const BgMenu = styled.div`
         top: 10vh; //tengo que hacer que tenga exacto el tamaño del nav para que no haya nada de diferencia
         left: 0;
     }
+    @media(min-width: 768px) {
+            display: none;
+        }
 `
 
 const Nav = () =>{
@@ -93,11 +96,11 @@ const Nav = () =>{
             <NavContainer>
                 <img src={logo} alt = 'logo' id='logo'></img>
                 <div className={`links ${click ? 'active' : ''}`}>
-                    <LinkHover contenido="Inicio" href = "#inicio" ></LinkHover>
-                    <LinkHover contenido="Habilidades" href = "#habilidades" ></LinkHover>
-                    <LinkHover contenido="Proyectos" href = "#proyectos" ></LinkHover>
-                    <LinkHover contenido="Sobre mi" href = "#sobreMi" ></LinkHover>
-                    <LinkHover contenido="Contacto" href = "#contacto" ></LinkHover>
+                    <LinkHover  hizoClick  = {hizoClick} contenido="Inicio" href = "#inicio" ></LinkHover>
+                    <LinkHover  hizoClick  = {hizoClick} contenido="Habilidades" href = "#habilidades" ></LinkHover>
+                    <LinkHover  hizoClick  = {hizoClick} contenido="Proyectos" href = "#proyectos" ></LinkHover>
+                    <LinkHover  hizoClick  = {hizoClick} contenido="Sobre mi" href = "#sobreMi" ></LinkHover>
+                    <LinkHover  hizoClick  = {hizoClick} contenido="Contacto" href = "#contacto" ></LinkHover>
                 </div>
                 <div className='burguer_div'>
                     <Hamburguesa clicked = {click} hizoClick  = {hizoClick}/>
