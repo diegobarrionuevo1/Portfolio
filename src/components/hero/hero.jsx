@@ -1,3 +1,4 @@
+import { useState , useEffect} from 'react'
 import styled from 'styled-components'
 
 
@@ -11,7 +12,31 @@ const HeroContainer = styled.section`
         z-index: 1;
     }
 `
-const RenglonInferior = styled.div`
+const RenglonSuperior = styled.div.attrs(
+    ({ trasladar }) => ({
+    style: {
+        transform: "rotate(0deg)",
+        transition: "all 0.3s ease-out",
+        transform: "translateX("+ trasladar +"px)",
+    }}))``
+
+
+const RenglonMedio =  styled.div.attrs(
+    ({ trasladar }) => ({
+    style: {
+        transform: "rotate(0deg)",
+        transition: "all 0.3s ease-out",
+        transform: "translateX("+ trasladar +"px)",
+    }}))``
+
+
+const RenglonInferior =  styled.div.attrs(
+    ({ trasladar }) => ({
+    style: {
+        transform: "translateX(0px)",
+        transition: "all 0.3s ease-out",
+        transform: "translateX("+ trasladar +"px)",
+    }}))`
     display: flex;
     flex-direction: row;
     align-items: baseline;
@@ -36,19 +61,24 @@ const TextoGrandeUbuntu= styled.span`
 `
 
 const Hero = ()=> {
+    const [scrollY, setScrollY] = useState (0)
+    useEffect(()=>{
+        window.addEventListener("scroll",()=>setScrollY(window.pageYOffset *0.3))
+    })
+
     return (<>
         <a id='inicio'></a>
         <HeroContainer >
             <a id='habilidades'></a>
-            <div>
+            <RenglonSuperior trasladar={-scrollY}>
                 <TextoGrandeItalica>Barrionuevo Diego,</TextoGrandeItalica>
-            </div>
-            {console.log(window.scrollY)}
-            <div>
+            </RenglonSuperior>
+            
+            <RenglonMedio trasladar={scrollY*2}>
                 <TextoGrandeUbuntu>Web </TextoGrandeUbuntu>
-            </div>
+            </RenglonMedio>
 
-            <RenglonInferior>       
+            <RenglonInferior trasladar={-scrollY}>       
                 <TextoGrandeUbuntu>Developer</TextoGrandeUbuntu>
                 <TextoPequeño>Trainee</TextoPequeño>
             </RenglonInferior>

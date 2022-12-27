@@ -1,8 +1,7 @@
 import { Footer, Hero, Nav, Pildoras, SobreMi, TargetasPro, Themes } from './components';
 import styled, { ThemeProvider } from 'styled-components';
 
-function App() {
-  const DivContainer = styled.div `
+const DivContainer = styled.div `
   background-color: ${({theme}) => theme.fondo};
   min-height: 100vh;
   display: flex;
@@ -13,6 +12,8 @@ function App() {
   overflow: hidden;
   `
 
+  
+function App() {
   return (
       <ThemeProvider theme={Themes["dark"]}>
         <DivContainer>

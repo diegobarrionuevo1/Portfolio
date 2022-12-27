@@ -37,7 +37,7 @@ const Pildoras = () =>{
                 <Pildora  image={imagenes.css} handle={activar} contenido ="Css" num = {1} estado = {pildor} />
                 <Pildora  image={imagenes.javascript} handle={activar} contenido ="Javascript" num = {2} estado = {pildor}/>
                 <Pildora  image={imagenes.react} handle={activar} contenido ="React" num = {3} estado = {pildor}/>
-                <Pildora  image={imagenes.node} handle={activar} contenido ="Node" num = {4} estado = {pildor}/>
+                <Pildora  image={imagenes.node} handle={activar} contenido ="Node //inProcess//" num = {4} estado = {pildor}/>
             </ContainerPildoras>
         </Container>
         </>

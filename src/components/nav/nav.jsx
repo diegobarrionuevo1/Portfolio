@@ -26,6 +26,7 @@ const NavContainer = styled.div`
         z-index:5;
         margin: 10px 0vw 0vw 2vw;
     }
+
     .links{
         position: absolute;
         top: -700px;

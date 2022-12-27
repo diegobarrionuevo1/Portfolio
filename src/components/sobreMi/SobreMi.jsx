@@ -22,11 +22,13 @@ const SobreMi = () => {
 
 export default SobreMi
 
+
 const Sobre = styled.section`
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: ${(props)=> props.estado ? "auto" : "17vh"};
+    transition: max-height .8s ease-in-out;
+    max-height: ${(props)=> props.estado ? "70vh" : "17vh"};
     margin-top: 12vh;
     overflow: hidden;
     background-color: ${({theme})=> theme.noFondo};
