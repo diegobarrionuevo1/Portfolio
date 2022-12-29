@@ -23,10 +23,11 @@ const Pildoras = () =>{
     }
     return(
         <>
+        <ContainerDetalle>
+            <PocasPuntas/>
+        </ContainerDetalle>
         <Container>
-            <ContainerDetalle>
-                <PocasPuntas/>
-            </ContainerDetalle>
+            <Fondo></Fondo>
             <TextContainer>
                 <h1>Habilidades</h1>
                 <p>¡Siempre estoy aprendiendo algo nuevo!</p>
@@ -48,15 +49,28 @@ export default Pildoras
 
 const ContainerDetalle = styled.div`
     position: relative;
+    width: 100%;
+    z-index: 0;
     div{
-        top: -15vh;
-        right: 20vw;
-        z-index: 0;
+        top: -12vh;
+        left: -8%;
+        right: auto;
+        position: absolute;
     }
 `
-
+const Fondo = styled.div`
+    position: absolute;
+    width:100% ;
+    height: 100%;
+    background-color: #f6f6f610;
+    z-index: -1;
+    top: -3px;
+    bottom: 0px;
+    right: 0px;
+    left: -3px;
+`
 const Container = styled.section`
-    background-color: ${({theme})=> theme.noFondo};
+    backdrop-filter: blur(2px);
     width: 100%;
     padding: 4vh 0;
     display: flex;
@@ -68,6 +82,11 @@ const ContainerPildoras = styled.div`
     width: 100%;
     display: flex;
     z-index: 1;
+    @media (min-width: 768px){
+        width: 80%;
+        margin: 5vw 0vw 2vw 0vw;
+        max-width: 1300px;
+    }
 `
 const TextContainer = styled.div`
     display: flex;
@@ -78,8 +97,8 @@ const TextContainer = styled.div`
         width: 100%;
         font-family: ${({theme})=> theme.fuente.Italiana};
         font-size: 1.9em;
-        font-weight: 700;
-        color: ${({theme})=> (theme.noTexto)};
+        font-weight: 300;
+        color: ${({theme})=> (theme.texto)};
         margin: 0;
         z-index: 1;
     }
@@ -88,8 +107,8 @@ const TextContainer = styled.div`
         text-align: right;
         font-family: ${({theme})=> theme.fuente.Italiana};
         font-size: .8em;
-        font-weight: 700;
-        color: ${({theme})=> (theme.noTexto)};
+        font-weight: 300;
+        color: ${({theme})=> (theme.texto)};
         margin: 0;
         margin-top: -10px;
         z-index: 1;
@@ -108,8 +127,11 @@ const PildoraDiv = styled.div`
     position: relative;
     transition: all 500ms ease-in-out;
     background-image: url('${(props)=>props.image}');
-    filter: brightness(59%);
+    filter: brightness(89%);
     overflow: hidden;
+    @media (min-width: 768px){
+        min-height: 220px;
+    }
 
     h1{
         position: absolute;

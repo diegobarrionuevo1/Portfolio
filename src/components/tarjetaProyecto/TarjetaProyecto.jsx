@@ -5,18 +5,20 @@ import info from "../assets/Sliders/slidersInfo"
 
 const TarjetaProyecto = (props) =>{
     return(<>
-            <SvgContainer >
-                <MuchasPuntas derecha= {props.derecha}/>
-            </SvgContainer>
-            <Container>
-                <Fondo></Fondo>
-                <SegundoDiv derecha = {props.derecha}>
-                    <h1 derecha = {props.derecha}>  {props.titulo}  </h1>
-                    <p>{props.contenido}</p>
-                </SegundoDiv>
-                <img src={props.imagen} alt="" />
-                <Numero derecha = {props.derecha}>  {props.numero}  </Numero>
-            </Container>
+            <TotalTarjeta derecha= {props.derecha}>
+                <SvgContainer >
+                    <MuchasPuntas derecha= {props.derecha}/>
+                </SvgContainer>
+                <Container>
+                    <Fondo></Fondo>
+                    <SegundoDiv derecha = {props.derecha}>
+                        <h1 derecha = {props.derecha}>  {props.titulo}  </h1>
+                        <p>{props.contenido}</p>
+                    </SegundoDiv>
+                    <img src={props.imagen} alt="" />
+                    <Numero derecha = {props.derecha}>  {props.numero}  </Numero>
+                </Container>
+            </TotalTarjeta>
         </>
     )
 }
@@ -24,6 +26,7 @@ const TarjetaProyecto = (props) =>{
 const TarjetasPro = () =>{
     return(
         <>
+        <TotalContainer >
         <Titulo>Proyectos</Titulo>
         {TarjetaProyecto (  
             {
@@ -43,6 +46,7 @@ const TarjetasPro = () =>{
             numero : "02"
             }
         )}
+        </TotalContainer>
         <a id='sobreMi'></a>
         <a id='contacto'></a>
         </>
@@ -53,20 +57,41 @@ const TarjetasPro = () =>{
 
 export default TarjetasPro;
 
+const TotalContainer = styled.div`
+    max-width: 1024px;
+    z-index: 2;
+`
+const TotalTarjeta = styled.div`
+/*     @media (min-width: 1024px) {
+        position: relative;
+        right: ${(props) => (props.derecha ? "auto" : "-9%")};
+        left: ${(props) => (props.derecha ? "-9%" : "auto")};
+    } */
+`
+
+
 const Titulo = styled.div`
     font-family: ${({theme})=> theme.fuente.Italiana};
     font-size: 2.2em;
     color: ${({theme})=> (theme.texto)};
-    width: 90%;
-    margin: 5vh 0vh -5vh 0vh;
+    width: 100%;
+    margin: 15% 0 0 0;
     display: flex;
+    justify-content: center;
 `
 
 const SvgContainer = styled.section`
     position: relative;
+    width: 100%;
+    z-index: -1;
+    top: -10vh;
     div{
-        top: 8vh;
-        right: ${(props) => (props.children.props.derecha ? "15vw" : "-65vw")};
+        position: absolute;
+        right: ${(props) => (props.children.props.derecha ? "auto" : "-18%")};
+        left: ${(props) => (props.children.props.derecha ? "-18%" : "auto")};
+/*         @media (min-width: 1024px){
+            top: -300px;
+        } */
     }
 `
 const Fondo = styled.div`
@@ -85,12 +110,25 @@ const Fondo = styled.div`
 const Container = styled.div`
     display: flex;
     width: 75vw;
-    height: auto;
+    max-height: 710px;
     flex-direction: column;
     padding: 5vw;
     border-radius: 12px;
     backdrop-filter: blur(2px);
     margin: 15vh 0 0;
+    z-index: 2;
+
+    @media (min-width: 505px){
+        margin: 25% 0 0 0;
+        width: 65vw;
+    }
+    @media (min-width: 1024px){
+        width: 664px;
+        padding: 51px;
+    }
+    img{
+        max-width: 730px;
+    }
 `
 const SegundoDiv= styled.div`
         position: relative;
@@ -100,9 +138,9 @@ const SegundoDiv= styled.div`
         h1{
             position: absolute;
             font-family: ${({theme})=> theme.fuente.Italiana};
-            font-size: 1.7em;
+            font-size: 1.7em;        
             font-weight: 500;
-            top: -34vw;
+            top: -84%;
             left:  ${(props) => (props.derecha ? "-9vw" : "20vw")};
             min-width: 85%;
             max-width: 86%;
@@ -120,8 +158,8 @@ const Numero = styled.h1`
             font-family: ${({theme})=> theme.fuente.Ubuntu};
             font-size: 1.9em;
             font-weight: 100;
-            bottom: -14vw;
-            left:  -5vw;
+            bottom: -16%;
+            left:  -5%;
             width: 108%;
             text-align:${(props) => (props.derecha ?  "start": "end" )};
 `

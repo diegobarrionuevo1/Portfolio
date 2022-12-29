@@ -23,10 +23,11 @@ const Link = styled.a`
     font-family: ${({theme})=> theme.fuente.Ubuntu};
     text-decoration: none;
     display: block;
-    @media (min-width: 768px) {
-            font-size: 1.2rem;
+    font-size: 1.2em;
+    @media (min-width: 768px) {        
             position: initial;
             display: inline;
+            font-size: .4em;
     }
     &:before {
         content: '';
@@ -35,8 +36,7 @@ const Link = styled.a`
         left: 0;
         right: 50%;
         height: 2px;
-        background-color: #447fff;
-        filter: saturate(200%);
+        background-color: #44BBFF;
         transform: scaleX(0);
         transform-origin: bottom left;
         transition: transform 0.3s;
@@ -48,8 +48,7 @@ const Link = styled.a`
         right: 0;
         left : 50%;
         height: 2px;
-        background-color: #447fff;
-        filter: saturate(200%);
+        background-color: #44BBFF;
         transform: scaleX(0);
         transform-origin: bottom right;
         transition: transform 0.3s;

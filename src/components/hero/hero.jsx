@@ -44,19 +44,19 @@ const RenglonInferior =  styled.div.attrs(
 /* ------------------texto----------------------- */
 
 const TextoPequeño = styled.span`
-    font-size: 1.2em;
+    font-size:calc((5px + 5vw)*1.2);
     margin-left: 5vw;
     font-family: ${({theme})=> theme.fuente.Italiana};
 `
 const TextoGrande = styled.span`
-    font-size: 1.94em;
+    font-size: calc((5px + 5vw)*1.94);
 `
 const TextoGrandeItalica = styled(TextoGrande)`
     font-family: ${({theme})=> theme.fuente.Italiana};
 `
 
 const TextoGrandeUbuntu= styled.span`
-    font-size: 2em;
+    font-size: calc((5px + 5vw)*2);
     font-family: ${({theme})=> theme.fuente.Ubuntu};
 `
 
@@ -69,7 +69,6 @@ const Hero = ()=> {
     return (<>
         <a id='inicio'></a>
         <HeroContainer >
-            <a id='habilidades'></a>
             <RenglonSuperior trasladar={-scrollY}>
                 <TextoGrandeItalica>Barrionuevo Diego,</TextoGrandeItalica>
             </RenglonSuperior>
@@ -77,12 +76,13 @@ const Hero = ()=> {
             <RenglonMedio trasladar={scrollY*2}>
                 <TextoGrandeUbuntu>Web </TextoGrandeUbuntu>
             </RenglonMedio>
-
+            <a id='habilidades'></a>
             <RenglonInferior trasladar={-scrollY}>       
                 <TextoGrandeUbuntu>Developer</TextoGrandeUbuntu>
                 <TextoPequeño>Trainee</TextoPequeño>
             </RenglonInferior>
         </HeroContainer>
+        
     </>)
 }
 

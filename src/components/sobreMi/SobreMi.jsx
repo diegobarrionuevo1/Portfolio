@@ -9,31 +9,41 @@ const SobreMi = () => {
         setclick(!click)
     }
     return(
-        <Sobre estado={click}>
-            <div>
-            <h1>¡Hola!</h1> 
-            <p>Soy un Estudiante de Ingeniería en Sistemas de Información seleccionado para Proyecto dalto.</p>
-            </div>  
-            <p>Algo que nunca a cambiado en mi es la pasión que tengo por aprender, tengo una necesidad muy grande por entender como funciona todo, para que sirve y como puedo aplicarlo en mi vida o mi trabajo. Esto aplica para todo los ambitos de la vida pero principalmente en el software y en el emprendedurismo.</p>
-            <h2 onClick={()=>{cambiar()}}>Ver más</h2>
-        </Sobre>
+        <Container estado={click}>
+            <Sobre >
+                <div>
+                <h1>¡Hola!</h1> 
+                <p>Soy un Estudiante de Ingeniería en Sistemas de Información seleccionado para Proyecto dalto.</p>
+                </div>  
+                <p>Algo que nunca a cambiado en mi es la pasión que tengo por aprender, tengo una necesidad muy grande por entender como funciona todo, para que sirve y como puedo aplicarlo en mi vida o mi trabajo. Esto aplica para todo los ambitos de la vida pero principalmente en el software y en el emprendedurismo.</p>
+                <h2 onClick={()=>{cambiar()}}>Ver más</h2>
+            </Sobre>
+        </Container>
     )
 }
 
 export default SobreMi
 
+const Container = styled.div`
+    transition: max-height .8s ease-in-out;
+    max-height: ${(props)=> props.estado ? "700px" : "150px"};
+    background-color: ${({theme})=> theme.noFondo};
+    margin-top: 12vh;
+    overflow: hidden;
+    position: relative;
+    padding-top: 2vh;
+    @media (min-width: 800px){
+        max-height: ${(props)=> props.estado ? "1500px" : "220px"};
+    }
+    @media (min-width: 1440px){
+        max-height: ${(props)=> props.estado ? "1500px" : "220px"};
+    }
+`
 
 const Sobre = styled.section`
     display: flex;
     flex-direction: column;
     width: 100%;
-    transition: max-height .8s ease-in-out;
-    max-height: ${(props)=> props.estado ? "70vh" : "17vh"};
-    margin-top: 12vh;
-    overflow: hidden;
-    background-color: ${({theme})=> theme.noFondo};
-    position: relative;
-    padding-top: 2vh;
     div{
         display: flex;
         h1{
@@ -47,7 +57,7 @@ const Sobre = styled.section`
         }
     }
     p{
-            margin: 0vw 1vw 20vw 4vw;
+            margin: 0vw 1vw 9% 4vw;
             color: ${({theme})=> theme.noTexto};
             font-family: ${({theme})=> theme.fuente.Italiana};
         }
@@ -63,6 +73,7 @@ const Sobre = styled.section`
         bottom: 0;
         left: 0;
         margin: 0;
+        cursor: pointer;
 
         &:before {
         content: '';

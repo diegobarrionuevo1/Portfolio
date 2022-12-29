@@ -61,7 +61,7 @@ const Seccion = styled.footer`
         a{
             margin: 20px;
             svg{
-                width: 1.2em;
+                width: 1em;
                 height: fit-content;
                 path{
                     fill: ${({theme})=> theme.noTexto};
@@ -72,6 +72,7 @@ const Seccion = styled.footer`
     h2{
         color: ${({theme})=> theme.noTexto};
         font-family: ${({theme})=> theme.fuente.Italiana};;
+        margin: 0;
         margin-bottom: 2vh;
         font-size: .7em;
     }

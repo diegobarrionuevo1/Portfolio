@@ -11,10 +11,10 @@ const Fuentes = {
 */
 
 const LightTheme = {
-    texto: "white",
-    noTexto: "black",
-    fondo: "#1f1e1d;",
-    noFondo: "#e4e4e4",
+    texto: "black",
+    noTexto: "white",
+    fondo: "#e4e4e4",
+    noFondo: "#1f1e1d;",
     fuente: Fuentes
 }
 const DarkTheme = {
