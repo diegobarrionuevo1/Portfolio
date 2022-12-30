@@ -15,7 +15,9 @@ const TarjetaProyecto = (props) =>{
                         <h1 derecha = {props.derecha}>  {props.titulo}  </h1>
                         <p>{props.contenido}</p>
                     </SegundoDiv>
-                    <img src={props.imagen} alt="" />
+                    <a href={props.link} target="_blank" rel="noreferrer">
+                        <img src={props.imagen} alt="" />
+                    </a>
                     <Numero derecha = {props.derecha}>  {props.numero}  </Numero>
                 </Container>
             </TotalTarjeta>
@@ -34,7 +36,8 @@ const TarjetasPro = () =>{
             contenido : "Esta fue mi primer web. La hice dentro de #ProyectoDalto ", 
             imagen : info.proyectos.mexican,
             derecha : 0,
-            numero : "01"
+            numero : "01",
+            link : "https://diegobarrionuevo1.github.io/Proyecto-individual-N-1/"
             }
         )}
         {TarjetaProyecto (  
@@ -99,7 +102,7 @@ const Fondo = styled.div`
     width:100% ;
     height: 100%;
     border-radius: 12px;
-    background-color: #f6f6f610;
+    background-color: ${({theme}) => theme.blurFondo};
     z-index: -1;
     top: -3px;
     bottom: 0px;
@@ -117,6 +120,13 @@ const Container = styled.div`
     backdrop-filter: blur(2px);
     margin: 15vh 0 0;
     z-index: 2;
+    a{
+        display: flex;
+        img{
+            width: 100%;
+            max-width: 730px;
+        }
+    }
 
     @media (min-width: 505px){
         margin: 25% 0 0 0;
@@ -125,9 +135,6 @@ const Container = styled.div`
     @media (min-width: 1024px){
         width: 664px;
         padding: 51px;
-    }
-    img{
-        max-width: 730px;
     }
 `
 const SegundoDiv= styled.div`

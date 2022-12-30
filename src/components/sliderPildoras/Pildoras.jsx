@@ -62,7 +62,7 @@ const Fondo = styled.div`
     position: absolute;
     width:100% ;
     height: 100%;
-    background-color: #f6f6f610;
+    background-color: ${({theme}) => theme.blurFondo};
     z-index: -1;
     top: -3px;
     bottom: 0px;
@@ -141,6 +141,6 @@ const PildoraDiv = styled.div`
         left: 20px;
         margin: 0;
         display: ${(props)=> props.active? "initial": "none"};
-        text-shadow: 0px 0px 15px #000000;
+        text-shadow: 0px 0px 15px ${({theme}) => theme.noTexto};
     }
 `

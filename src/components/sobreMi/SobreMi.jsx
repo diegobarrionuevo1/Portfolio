@@ -32,6 +32,9 @@ const Container = styled.div`
     overflow: hidden;
     position: relative;
     padding-top: 2vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
     @media (min-width: 800px){
         max-height: ${(props)=> props.estado ? "1500px" : "220px"};
     }
@@ -44,6 +47,7 @@ const Sobre = styled.section`
     display: flex;
     flex-direction: column;
     width: 100%;
+    max-width: 1409px;
     div{
         display: flex;
         h1{

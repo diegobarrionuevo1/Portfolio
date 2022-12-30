@@ -1,6 +1,6 @@
 import { Footer, Hero, Nav, Pildoras, SobreMi, TargetasPro, Themes } from './components';
 import styled, { ThemeProvider } from 'styled-components';
-import { useState } from 'react';
+import useThemeMode from './components/assets/Hooks/useThemeMode';
 
 const DivContainer = styled.div `
   background-color: ${({theme}) => theme.fondo};
@@ -18,13 +18,10 @@ const DivContainer = styled.div `
 
   
 function App() {
-  const [theme, setTheme] = useState ("dark")
-  let themesCondition = theme==="light" ? "dark" : "light" 
-  const changeTheme =()=>{
-    setTheme(themesCondition)
-  }
+  const [theme, changeTheme] = useThemeMode ()
+  console.log(theme)
   return (
-      <ThemeProvider theme={Themes[theme]}>
+      <ThemeProvider theme={{...Themes[theme]}}>
         <DivContainer>
           <Nav change = {changeTheme}/>
           <Hero/>
