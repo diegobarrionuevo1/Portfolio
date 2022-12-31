@@ -48,6 +48,12 @@ const NavContainer = styled.div`
         a{
             margin: 3vw 0;
         }
+        .switch{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin: 3vw 0;
+        }
         @media (min-width: 768px) {
             position: initial;
             margin: 0px 3vw;
@@ -55,6 +61,10 @@ const NavContainer = styled.div`
             align-items: center;
             a{
                 margin: 0;
+            }
+            .switch{
+                margin: 0;
+                width: auto;
             }
         }
     }
@@ -113,7 +123,7 @@ const Nav = (props) =>{
                     <LinkHover  hizoClick  = {hizoClick} contenido="Sobre mi" href = "#sobreMi" ></LinkHover>
                     <LinkHover  hizoClick  = {hizoClick} contenido="Contacto" href = "#contacto" ></LinkHover>
                     {/* este es el swich para el theme. Recibe una prop que le permite cambiar el tema al hacer click */}
-                    <Switch change = {props.change}></Switch>
+                    <div className='switch'><Switch change = {props.change}></Switch></div>
                 </div>
                 <div className='burguer_div'>
                     <Hamburguesa clicked = {click} hizoClick  = {hizoClick}/>
