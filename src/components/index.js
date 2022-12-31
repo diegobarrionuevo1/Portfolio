@@ -1,6 +1,6 @@
 export {default as Hero} from "./hero/hero"
 export {default as Nav} from "./nav/nav.jsx"
-export {default as Themes} from "./Theme/Themes"
+export {default as Themes} from "./theme/Themes"
 export {default as Pildoras} from "./sliderPildoras/Pildoras.jsx"
 export {default as SobreMi} from "./sobreMi/SobreMi.jsx"
 export {default as Proyectos} from "./sliderProyectos/Proyectos.jsx"
