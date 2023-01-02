@@ -11,7 +11,7 @@ const Fuentes = {
 */
 
 const LightTheme = {
-    texto: "#1f1e1d",
+    texto: "#1f1e1d-",
     noTexto: "white",
     fondo: "#e4e4e4",
     noFondo: "#1f1e1d;",
