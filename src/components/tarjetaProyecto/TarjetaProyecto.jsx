@@ -49,6 +49,16 @@ const TarjetasPro = () =>{
             numero : "02"
             }
         )}
+        {TarjetaProyecto (  
+            {
+            titulo:"Coffee Delivery",
+            contenido : "Realizado con el objetivo de probar nuevas librerias.", 
+            imagen : info.proyectos.cafe,
+            derecha : 0,
+            numero : "03",
+            link:"https://delivery-cafe.vercel.app/"
+            }
+        )}
         </TotalContainer>
         <a id='sobreMi'></a>
         <a id='contacto'></a>

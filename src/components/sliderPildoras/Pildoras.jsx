@@ -9,7 +9,7 @@ function Pildora(props){
         return(props.handle(props.num))
     }
     return(
-    <PildoraDiv  image={props.image} onClick={setEstado}  active = {(props.estado === props.num)} /* className= { (props.estado === props.num) ? "active" : ""} */>
+    <PildoraDiv  image={props.image} gif={props.gif} onClick={setEstado}  active = {(props.estado === props.num)}>
                     <h1>{props.contenido}</h1>
     </PildoraDiv>
     )
@@ -34,11 +34,11 @@ const Pildoras = () =>{
             </TextContainer>
             <a id='proyectos'></a>
             <ContainerPildoras>
-                <Pildora  image={imagenes.html} handle={activar} contenido ="Html" num = {0} estado = {pildor}/>
-                <Pildora  image={imagenes.css} handle={activar} contenido ="Css" num = {1} estado = {pildor} />
-                <Pildora  image={imagenes.javascript} handle={activar} contenido ="Javascript" num = {2} estado = {pildor}/>
-                <Pildora  image={imagenes.react} handle={activar} contenido ="React" num = {3} estado = {pildor}/>
-                <Pildora  image={imagenes.node} handle={activar} contenido ="Node //inProcess//" num = {4} estado = {pildor}/>
+                <Pildora  image={imagenes.html} gif ={imagenes.gifHtml}  handle={activar} contenido ="Html" num = {0} estado = {pildor}/>
+                <Pildora  image={imagenes.css} gif ={imagenes.gifCss}  handle={activar} contenido ="Css" num = {1} estado = {pildor} />
+                <Pildora  image={imagenes.javascript} gif ={imagenes.gifJavascript}  handle={activar} contenido ="Javascript" num = {2} estado = {pildor}/>
+                <Pildora  image={imagenes.react} gif ={imagenes.gifReact}  handle={activar} contenido ="React" num = {3} estado = {pildor}/>
+                <Pildora  image={imagenes.node} gif ={imagenes.gifNode}  handle={activar} contenido ="Node //inProcess//" num = {4} estado = {pildor}/>
             </ContainerPildoras>
         </Container>
         </>
@@ -126,7 +126,9 @@ const PildoraDiv = styled.div`
     background-repeat: no-repeat;
     position: relative;
     transition: all 500ms ease-in-out;
-    background-image: url('${(props)=>props.image}');
+    background-color:  ${({theme}) => theme.blurFondo};
+    background-image: url(${(props)=> props.active ? (props.image):(props.gif)});
+    background-size: ${(props)=> props.active? "cover": "contain"};
     filter: brightness(89%);
     overflow: hidden;
     @media (min-width: 768px){
