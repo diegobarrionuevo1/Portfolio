@@ -3,7 +3,7 @@ import styled from "styled-components"
 export const LinkHover = (props) =>{
     return(
         <DivCheto>
-            <Link onClick={props.hizoClick}  href={props.href || ""}> {props.contenido} </Link>
+            <Links onClick={props.hizoClick || ""}  href={props.href || ""}> {props.contenido} </Links>
         </DivCheto>
     )
 }
@@ -18,7 +18,7 @@ const DivCheto = styled.div`
     margin: 0vw 1vw;
 `
 
-const Link = styled.a`
+const Links = styled.a`
     color: ${({theme})=> theme.texto};
     font-family: ${({theme})=> theme.fuente.Ubuntu};
     text-decoration: none;

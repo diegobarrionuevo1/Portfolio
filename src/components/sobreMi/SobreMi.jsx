@@ -1,5 +1,7 @@
 import { useState } from "react"
 
+import Modal from "../proyectoModal/Modal"
+
 
 const { default: styled } = require("styled-components")
 
@@ -8,15 +10,23 @@ const SobreMi = () => {
     const cambiar = ()=>{
         setclick(!click)
     }
+    const [modal, setModal] = useState(false)
+    const modalHandle = ()=>{
+        if (click){
+                setModal(!modal)
+        }
+    }
     return(
         <Container estado={click}>
             <Sobre >
-                <div>
+                <div className="primerDiv">
                 <h1>¡Hola!</h1> 
-                <p>Soy un Estudiante de Ingeniería en Sistemas de Información seleccionado para Proyecto dalto.</p>
-                </div>  
-                <p>Algo que nunca a cambiado en mi es la pasión que tengo por aprender, tengo una necesidad muy grande por entender como funciona todo, para que sirve y como puedo aplicarlo en mi vida o mi trabajo. Esto aplica para todo los ambitos de la vida pero principalmente en el software y en el emprendedurismo.</p>
-                <h2 onClick={()=>{cambiar()}}>Ver más</h2>
+                <p>Soy Diego, estudiante de Ingeniería en Sistemas de Información y seleccionado para <span onClick={() =>modalHandle()}>#ProyectoDalto.</span></p>
+                </div>
+                <Modal modal={modal} modalHandle={modalHandle}/>
+                <p> Mi pasión por aprender me llevó al mundo del software, donde se adquiere constantemente nuevos conocimientos y habilidades.</p>
+                <p className="pe">Agradezco tu visita a mi portfolio y si algo te interesa espero que me contactes!</p>
+                <h2 onClick={()=>{cambiar()}}>{click?"Ver menos": "Ver más"}</h2>
             </Sobre>
         </Container>
     )
@@ -48,7 +58,7 @@ const Sobre = styled.section`
     flex-direction: column;
     width: 100%;
     max-width: 1409px;
-    div{
+    .primerDiv{
         display: flex;
         h1{
             font-family: ${({theme})=> theme.fuente.Italiana};
@@ -61,10 +71,21 @@ const Sobre = styled.section`
         }
     }
     p{
-            margin: 0vw 1vw 9% 4vw;
+            margin: 0vw 1vw 0 4vw;
             color: ${({theme})=> theme.noTexto};
             font-family: ${({theme})=> theme.fuente.Italiana};
+            span{
+                color:#44BBFF;
+                cursor: pointer;
+                text-decoration: underline;
+                :hover{
+                    color: #2678a7;
+                }
+            }
         }
+    .pe{
+        margin: 0vw 1vw 9% 4vw;
+    }
     h2{
         width: 100%;
         text-align: center;

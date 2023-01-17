@@ -16,7 +16,8 @@ const LightTheme = {
     fondo: "#e4e4e4",
     noFondo: "#1f1e1d;",
     fuente: Fuentes,
-    blurFondo:"#00000016"
+    blurFondo:"#00000016",
+    modalFondo: "#ffffffa3"
 }
 const DarkTheme = {
     texto: "white",
@@ -24,7 +25,8 @@ const DarkTheme = {
     fondo: "#1f1e1d;",
     noFondo: "#e4e4e4",
     fuente: Fuentes,
-    blurFondo:"#f6f6f610"
+    blurFondo:"#f6f6f610",
+    modalFondo: "#00000092"
 }
 
 
